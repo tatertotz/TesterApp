@@ -13,14 +13,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Meowoo!"
+        android:text="This is a test!"
         android:id="@+id/textView" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text="This is the master branch"
         android:ems="10"
         android:layout_marginTop="172dp"
         android:id="@+id/editText"

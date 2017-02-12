@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="This is the master branch"
+        android:text="This is the master branchooo"
         android:ems="10"
         android:layout_marginTop="172dp"
         android:id="@+id/editText"

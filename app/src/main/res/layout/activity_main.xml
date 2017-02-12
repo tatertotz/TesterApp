@@ -62,4 +62,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="78dp"
         android:id="@+id/editText2" />
+
+    <TextSwitcher
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
 </RelativeLayout>

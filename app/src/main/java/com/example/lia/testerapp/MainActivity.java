@@ -6,6 +6,7 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
 
     int cat;
+    int dog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

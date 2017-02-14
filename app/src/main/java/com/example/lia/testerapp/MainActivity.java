@@ -7,6 +7,7 @@ public class MainActivity extends AppCompatActivity {
 
     int cat;
     int kitten;
+    int dog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

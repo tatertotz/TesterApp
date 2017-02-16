@@ -6,7 +6,9 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
 
     int cat;
+    int kitten;
     int dog;
+    double food;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

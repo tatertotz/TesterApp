@@ -9,32 +9,25 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.lia.testerapp.MainActivity">
-    
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
-        android:id="@+id/style"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:entries="@array/sushi_styles"  />
 
     <Button
-        android:text="@string/find_sushi"
+        android:id="@+id/send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/style"
-        android:layout_below="@id/style"
-        android:onClick="onClickFindSushi"
-        android:id="@+id/find_sushi" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="21dp"
+        android:onClick="onSendMessage"
+        android:text="@string/send"/>
 
-    <TextView
+    <EditText
+        android:id="@+id/message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/find_sushi"
-        android:layout_below="@+id/find_sushi"
+        android:layout_alignLeft="@+id/send"
+        android:layout_below="@+id/send"
         android:layout_marginTop="18dp"
-        android:text="@string/types"
-        android:id="@+id/types" />
+        android:ems="10"/>
 
 </RelativeLayout>

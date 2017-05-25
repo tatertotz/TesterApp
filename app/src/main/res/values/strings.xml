@@ -3,7 +3,6 @@
     <string name="find_sushi">Find Sushi!</string>
     <string name="types"></string>
     <string name="send">SEND MESSAGE</string>
-    <string name="chooser">Send message...</string>
     <string-array name="sushi_styles">
         <item>maki</item>
         <item>nigiri</item>

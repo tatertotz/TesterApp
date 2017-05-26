@@ -6,7 +6,14 @@
     <string name="chooser">Send message...</string>
     <string-array name="sushi_styles">
         <item>maki</item>
+        <item>uramaki</item>
+        <item>temaki</item>
         <item>nigiri</item>
-        <item>tamaki</item>
+        <item>sashimi</item>
     </string-array>
+    <string-array name="options">
+        <item>sushi</item>
+        <item>cats</item>
+    </string-array>
+    <string name="title_activity_sushi_category">SushiCategoryActivity</string>
 </resources>

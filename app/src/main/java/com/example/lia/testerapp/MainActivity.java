@@ -14,17 +14,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> listView, View itemView, int position, long id) {
+                if (position == 0) {
+                    Intent intent = new Intent(MainActivity.this, SushiCategoryActivity.class);
+                    startActivity(intent);
+                }
+            }
+        };
+
+        ListView listView = (ListView) findViewById(R.id.list_options);
+        listView.setOnItemClickListener(itemClickListener);
     }
 
-    AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
-        public void onItemClick(AdapterView<?> listView, View itemView, int position, long id) {
-            if (position == 0) {
-                Intent intent = new Intent(MainActivity.this, SushiCategoryActivity.class);
-                startActivity(intent);
-            }
-        }
-    };
-
-    ListView listView = (ListView) findViewById(R.id.list_options);
-    listView.setOnItemClickListener(itemClickListener);
 }

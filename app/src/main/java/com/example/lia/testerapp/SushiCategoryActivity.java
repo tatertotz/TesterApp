@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 public class SushiCategoryActivity extends ListActivity {
 
+    public static final String EXTRA_SUSHISTYLE = "sushiStyle";
     private SQLiteDatabase db;
     private Cursor cursor;
 
@@ -23,13 +24,16 @@ public class SushiCategoryActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         ListView listSushi = getListView();
 
+        //Get the sushi type from the intent
+        String sushiType = getIntent().getExtras().get(EXTRA_SUSHISTYLE).toString();
+
         try {
             SQLiteOpenHelper sushiDatabaseHelper = new SushiDatabaseHelper(this);
             db = sushiDatabaseHelper.getReadableDatabase();
 
             cursor = db.query("SUSHI",
                     new String[]{"_id", "NAME"},
-                    null, null, null, null, null);
+                    "TYPE = ?", new String[] {sushiType}, null, null, null);
 
             CursorAdapter listAdapter = new SimpleCursorAdapter(this,
                     android.R.layout.simple_list_item_1,

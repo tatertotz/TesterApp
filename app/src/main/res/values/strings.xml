@@ -5,11 +5,11 @@
     <string name="send">SEND MESSAGE</string>
     <string name="chooser">Send message...</string>
     <string-array name="sushi_styles">
-        <item>maki</item>
-        <item>uramaki</item>
-        <item>temaki</item>
-        <item>nigiri</item>
-        <item>sashimi</item>
+        <item>Maki</item>
+        <item>Uramaki</item>
+        <item>Temaki</item>
+        <item>Nigiri</item>
+        <item>Sashimi</item>
     </string-array>
     <string-array name="options">
         <item>sushi</item>

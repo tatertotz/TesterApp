@@ -12,7 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class SushiDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "sushi";
-    private static final int DB_VERSION = 2;
+    private static final int DB_VERSION = 3;
 
     SushiDatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -56,8 +56,8 @@ public class SushiDatabaseHelper extends SQLiteOpenHelper {
                     R.drawable.maguro_nigiri);
         }
 
-        //What to do if you have an old version of the database.
-        if (oldVersion < 2) {
+        //What to do if you have version 1 of the database (it was lacking some spaces in some description entries).
+        if (oldVersion == 1) {
             updateSushi(db, "Sake Nigiri", "Nigiri", "Salmon", R.drawable.sake_nigiri);
             updateSushi(db, "California Roll", "Uramaki",
                     "One of the rare types of Western sushi that's popular in Japan. " +
@@ -75,6 +75,11 @@ public class SushiDatabaseHelper extends SQLiteOpenHelper {
                     "A lean cut of tuna. This is the inexpensive variety of tuna. " +
                             "When it comes to tuna, fatty cuts are more expensive.",
                     R.drawable.maguro_nigiri);
+        }
+
+        //What to do if you have an old version of the database.
+        if (oldVersion < 3) {
+            db.execSQL("ALTER TABLE SUSHI ADD COLUMN FAVORITE NUMERIC;");
         }
     }
 

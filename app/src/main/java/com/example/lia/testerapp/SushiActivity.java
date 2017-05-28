@@ -80,7 +80,7 @@ public class SushiActivity extends AppCompatActivity {
             SQLiteDatabase db = sushiDatabaseHelper.getWritableDatabase();
             db.update("SUSHI", sushiValues, "_id = ?", new String[] {Integer.toString(sushiNo)});
             db.close();
-            
+
         } catch (SQLiteException e) {
             Toast toast = Toast.makeText(this, "Database unavailable", Toast.LENGTH_SHORT);
             toast.show();

@@ -5,6 +5,7 @@
     <string name="send">SEND MESSAGE</string>
     <string name="chooser">Send message...</string>
     <string name="favorite">Favorite</string>
+    <string name="favorites">Favorites</string>
     <string-array name="sushi_styles">
         <item>Maki</item>
         <item>Uramaki</item>

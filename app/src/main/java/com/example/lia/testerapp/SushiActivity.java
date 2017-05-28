@@ -27,7 +27,7 @@ public class SushiActivity extends AppCompatActivity {
             SQLiteOpenHelper sushiDatabaseHelper = new SushiDatabaseHelper(this);
             SQLiteDatabase db = sushiDatabaseHelper.getReadableDatabase();
             Cursor cursor = db.query("SUSHI",
-                    new String[] {"NAME", "TYPE", "IMAGE_RESOURCE_ID"},
+                    new String[] {"NAME", "DESCRIPTION", "IMAGE_RESOURCE_ID"},
                     "_id = ?",
                     new String[] {Integer.toString(sushiNo)},
                     null, null, null);
@@ -35,7 +35,7 @@ public class SushiActivity extends AppCompatActivity {
             if (cursor.moveToFirst()) {
                 //Get the sushi details from the cursor
                 String nameText = cursor.getString(0);
-                String typeText = "Type: " + cursor.getString(1);
+                String typeText = cursor.getString(1);
                 int photoId = cursor.getInt(2);
 
                 //Populate the sushi name

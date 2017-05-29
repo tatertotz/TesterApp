@@ -9,7 +9,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.CursorAdapter;
 import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 import static com.example.lia.testerapp.SushiCategoryActivity.EXTRA_SUSHISTYLE;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Create an on click listener for the buttons
         AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> listView, View itemView, int position, long id) {
                 //Get the chosen type form the listView
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+        //Set the on click listener to the list view.
         ListView listView = (ListView) findViewById(R.id.list_options);
         listView.setOnItemClickListener(itemClickListener);
 
@@ -47,13 +51,29 @@ public class MainActivity extends AppCompatActivity {
         try {
             SQLiteOpenHelper sushiDatabaseHelper =  new SushiDatabaseHelper(this);
             db = sushiDatabaseHelper.getReadableDatabase();
-            favoritesCursor = db.query("SUSHI", new String[] {"NAME", "FAVORITES", "_id"},
-                    "FAVORITE = 1", null, null, null, null);   
+            favoritesCursor = db.query("SUSHI", new String[] {"NAME", "FAVORITE", "_id"},
+                    "FAVORITE = 1", null, null, null, null);
+
+            //Create a cursor adapter to eventually put the data from the database into the app
+            CursorAdapter favoritesAdapter = new SimpleCursorAdapter(MainActivity.this,
+                    android.R.layout.simple_list_item_1, favoritesCursor,
+                    new String[] {"NAME"}, new int[] {android.R.id.text1}, 0);
+
+            listFavorites.setAdapter(favoritesAdapter);
+
         } catch (SQLiteException e) {
             Toast toast = Toast.makeText(this, "Database unavailable", Toast.LENGTH_SHORT);
             toast.show();
         }
 
+    }
+
+    //Close the cursor and database in the onDestroy() method
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        favoritesCursor.close();
+        db.close();
     }
 
 }

@@ -66,6 +66,15 @@ public class MainActivity extends AppCompatActivity {
             toast.show();
         }
 
+        //Navigate to SushiActivity if a sushi is clicked
+//        listFavorites.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> listView, View v, int position long id) {
+//                Intent intent = new Intent(MainActivity.this, SushiActivity.class);
+//                intent.putExtra(SushiActivity.EXTRA_SUSHINO, (int)id);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     //Close the cursor and database in the onDestroy() method

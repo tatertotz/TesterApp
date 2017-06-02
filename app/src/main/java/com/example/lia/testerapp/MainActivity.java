@@ -85,4 +85,27 @@ public class MainActivity extends AppCompatActivity {
         db.close();
     }
 
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        try {
+            //Create the cursor and do the other things the same the same way you did before
+            SQLiteOpenHelper sushiDatabaseHelper =  new SushiDatabaseHelper(this);
+            db = sushiDatabaseHelper.getReadableDatabase();
+            favoritesCursor = db.query("SUSHI", new String[] {"NAME", "FAVORITE", "_id"},
+                    "FAVORITE = 1", null, null, null, null);
+
+            //Gets the CursorAdapter used by the ListView
+            ListView listFavorites = (ListView) findViewById(R.id.favorites);
+            CursorAdapter favoritesAdapter = (CursorAdapter) listFavorites.getAdapter();
+
+            //Changes the cursor used by the CursorAdapter to the new one I just created.
+            favoritesAdapter.changeCursor(favoritesCursor);
+
+        } catch (SQLiteException e) {
+            Toast toast = Toast.makeText(this, "Database unavailable", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
+
 }
